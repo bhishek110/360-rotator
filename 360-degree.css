@@ -1,0 +1,123 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: url(bg.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 4rem;
+  -webkit-text-stroke: 0.3px white;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 4rem;
+}
+
+.main-container{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  --left: -150px;
+  transition: 0.9s;
+  z-index: 2;
+}
+
+.image-container {
+  margin-top: 80px;
+  background: url(label-2.png) var(--left), url(can.png);
+  background-size: cover;
+  width: 147px;
+  height: 300px;
+  background-blend-mode: multiply;
+  -webkit-mask-image: url(can.png);
+  -webkit-mask-size: cover;
+  mask-image: url(can.png);
+  mask-size: cover;
+  transition: 0.8s;
+}
+
+.image-container:hover {
+  background: url(label-1.png) var(--left), url(can.png);
+  background-size: cover;
+  --left: 1200px;
+  transition: 0.8s;
+  transform: translateY(-40px) scale(1.05);
+  cursor: pointer;
+}
+
+.particles img:nth-child(1) {
+  width: 350px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(350px);
+  transition: 0.7s;
+}
+
+.particles img:nth-child(2) {
+  width: 380px;
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  transition: 0.7s;
+}
+
+.particles img:nth-child(3) {
+  width: 350px;
+  position: absolute;
+  right: -10%;
+  bottom: -40%;
+  transform: rotate(-40deg);
+  transition: 0.7s;
+}
+
+.main-container:has(.image-container:hover) .particle-1 {
+  width: 350px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(370px) scale(.95);
+  transition: 0.7s;
+}
+
+.main-container:has(.image-container:hover) .particle-2 {
+  width: 380px;
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  transform: translate(-30px, 30px);
+  transition: 0.7s;
+}
+
+.main-container:has(.image-container:hover) .particle-3 {
+  width: 350px;
+  position: absolute;
+  right: -10%;
+  bottom: -40%;
+  transform: rotate(-40deg) translate(-30px, 30px);
+  transition: 0.7s;
+}
+
+@media screen and (max-width: 900px) {
+  .particles img:nth-child(2),
+  .particles img:nth-child(3) {
+    display: none;
+  }
+}
